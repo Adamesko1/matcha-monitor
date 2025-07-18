@@ -1,0 +1,10 @@
+services:
+  - type: cron
+    name: matcha-monitor
+    schedule: "*/10 * * * *"
+    envVars:
+      - key: TELEGRAM_TOKEN
+        fromSecret: TELEGRAM_TOKEN
+      - key: TELEGRAM_CHAT_ID
+        fromSecret: TELEGRAM_CHAT_ID
+    runCommand: "python check_matcha.py"
